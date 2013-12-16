@@ -1,0 +1,5 @@
+1.
+AES encrypt need :
+tar vxzf jce_policy-6.zip
+replace  $JAVA_HOME/jre/lib/security/local_policy.jar with ./jce/local_policy
+replace  $JAVA_HOME/jre/lib/security/US_export_policy.jar with ./jce/local_policy

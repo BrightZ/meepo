@@ -4,3 +4,8 @@
 *.jar
 *.war
 *.ear
+
+# User Files #
+/hyla-db
+out
+logger

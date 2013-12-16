@@ -1,0 +1,162 @@
+=====================================================================================================
+2012-07-12 13:09
+1.修改了UGRelationFactory.syncUserRelation,能够当User和Group的Relation变化的时候能够够同步
+2.修噶了User.getJoinedGroupRelations，在返回的时候加入判断Relaion是否为None的情况，并过滤掉这种Groups
+
+=====================================================================================================
+2012-07-12 15:35
+1.完全修复UGRelationFactory.syncUserRelation的BUG，the method we use is fucking HOT!!
+
+=====================================================================================================
+2012-7-14 10:00
+1.修改RpcImpl writeConfirmWithSha1AndVersion 如果没有写权限，返回PERMISSION_DENIED错误，而不是SUCCESS
+
+=====================================================================================================
+2012-07-16 14:30
+1.完成DefaultDistributionPolicy的工作,可以通过config.xml配置文件配置什么样的文件夹放到对应的DS上。多个DS。
+
+=====================================================================================================
+2012-07-19 14:00
+1.完成多个DS版本的LM，并经过简单的测试,发现之前的LM中对DS的重复好像没有检查都插入到数据库中，潜在的BUG
+可能会造成分配到无效的DS上.
+
+=====================================================================================================
+2012-7-20 11:00
+1.修改早期的LM版本中的User.java中密码的BUG 
+
+=====================================================================================================
+2012-08-24 17:12
+1.just a commit
+
+=====================================================================================================
+2012-08-24 17:25
+1.just a commit , no change
+
+=====================================================================================================
+2012-09-02 12:11
+1.new version 20120902.0 :fixed JoomlaSql.properties 
+
+=====================================================================================================
+2012-09-04 11:57
+1.add some debug info to CassandraClient.java , if the Token is empty, log it with "CEX:"
+2.new version 20120902.0 DebugMode
+
+=====================================================================================================
+2012-09-05 13:09
+1.find a user sync bug :
+UserFactory.syncUser : 
+    if (retUser2 != null) {
+        if (retUser1 == null || !retUser2.getPasswordMd5().equalsIgnoreCase(retUser1.getPasswordMd5())) {
+            CassandraClient.getInstance().putUser(retUser2);
+        }
+//        userMap.put(email,retUser1); 
+          userMap.put(email,retUser2);
+        return retUser2;
+    }
+2.UserFactory.syncUser(email) : 
+if email is null, log a" FATAL : Email Maynot be Empty!" and remove this from userMap
+3.new version 20120902.1_DebugMode
+
+=====================================================================================================
+2012-09-05 16:32
+1.BUG(testing): the value of "email" in userMap may not be empty
+string == null is different from string == ""
+2.new version 20120902.2_DebugMode
+
+=====================================================================================================
+2012-090-10 16:18
+1.add scheduler package
+a)MSchedule : schedule jobs . 
+b)MJob : Meepo Jobs.
+2.add dsa package
+DSClient : Data Server Client
+3.add TrashCleaner
+clean trash at 1.am everyday
+4.new version : 20120911.0 DebugMode
+
+=====================================================================================================
+2012-09-11 21:29
+1.new version 20120911.1 DebugMode , more stable than .0 version, but need to
+be tested
+
+=====================================================================================================
+2012-09-12 15:02
+1.new version 20120911.2 DebugMode. need to be tested
+2.TrashCleaner can be configured : 
+ <TrashCleaner>
+     <cron>* 0/10 * * * ?</cron>
+     <expire_day>1</expire_day>
+ </TrashCleaner>
+cron : cronString . see :API of quartz-2.1.6 , Class  CronExpression
+
+=====================================================================================================
+2012-09-14 16:49
+1.new version 20120914.0 DebugMode on mi-->ss1.thu
+2.clean trash to log server
+3.add TrashCleaner Statistic to lm1.thu.meepo.org/stat page
+
+=====================================================================================================
+2012-09-14 19:20
+1.new version 20120914.1 DebugMode on mi-->ss1.thu
+*****************************************************************************************************
+NOTICE: 
+required : from src node to dest node , ssh can do automatically
+*****************************************************************************************************
+2.fixed some error
+
+=====================================================================================================
+2012-10-04 21:48
+1.add package firewall for security. In org.meepo.firewall :
+	Cipher.java : Cipher is the key of AES. It will be synchronized betweeen LM and DS.
+	CipherManager.java : CipherManager is for maintain the life cycle of Cipher. It wiil maintain a
+		size of cipherMapSize ciphers. Using MSchedule to update Cipher. Update cycle can be 
+		configured.
+	DataPermission: For managing the permission of an operation on data server. 
+		rwdms : read, write, delete, map, set replication number.
+2.add class org.meepo.DSToken. DSToken is the token present to Data Server.
+	DSToken contains : Version, url, email, DataPermissionString, dsTokenGenTime.
+3.add method :
+	a)org.meepo.XmlRpcImpl.getDataServerTokenCipher(id), will return the corresponding cipher of the 
+		giving cipher_id, [cipher_id ,cipher_string].
+	b)org.meepo.XmlRpcImpl.getCurrentDataServerTokenCipher(), will return current cipher,[cipher_id, 
+		cipher_string].
+4.add org.meepo.firewall.Enigma : for AES encrypt and decrypt
+5.TODO :
+	a)DataPermission need more details about constractor's Exception.
+	b)TrashCleaner src node and dst node can be configured.
+6.emergent commit.
+
+=====================================================================================================
+2012-10-15 15:26
+1.fixed org.meepo.xmlrpc.RpcImpl.java  fileObject attributes is null bug.
+	check if attributes is null , if so, the file object will not return.
+2.add org.meepo.xmlrpc.RpcImpl.restore.
+3.add org.meepo.xmlrpc.Ugly . Ugly for restore file recursely.
+4.add function, in Client.java, admin can restore files.
+3.new version 20121015.0 Debug Mode on mi --> ss1.thu
+
+====================================================================================================
+2012-10-20 22:02
+1.fixed web token bug : validate web token before return the token. fiexd in
+org.meepo.user.User.java.getWebToken
+2.new version 20121020.0 Debug Mode
+3.disabled : 
+	a) TrashCleaner
+	b) CipherManager
+in org.meepo.hyla.FileSystem
+
+====================================================================================================
+2012-10-20 12:38
+1.add Online user statistic
+2.new version 20121020.1 Debug Mode
+
+====================================================================================================
+2012-11-13 21:30
+1.add get Request Ip Address.
+2.RpcImpl.java .Log ip address when client send an request.
+
+====================================================================================================
+2012-11-26 13:00
+** new branch lm-tools based on thu1,
+** lm-tools encapsulates tools for lm management.
+1.

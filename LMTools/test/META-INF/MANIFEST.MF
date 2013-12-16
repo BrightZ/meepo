@@ -1,0 +1,40 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.2
+Created-By: 1.6.0_29-b11-402-11D50b (Apple Inc.)
+Main-Class: org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader
+Rsrc-Main-Class: org.meepo.webserver.MeepoServletServer
+Rsrc-Class-Path: ./ commons-cli-1.1.jar commons-codec-1.2.jar commons-
+ codec-1.4.jar commons-collections-3.2.1.jar commons-configuration-1.7
+ -javadoc.jar commons-configuration-1.7-sources.jar commons-configurat
+ ion-1.7.jar commons-httpclient-3.0.jar commons-lang-2.6.jar commons-l
+ ogging-1.1.1.jar commons-logging-1.1.jar commons-net-3.0.1-sources.ja
+ r commons-net-3.0.1.jar commons-net-examples-3.0.1.jar commons-pool-1
+ .5.3.jar concurrentlinkedhashmap-lru-1.1.jar FastInfoset-1.2.2.jar gu
+ ava-r09.jar hector-core-1.0-1-sources.jar hector-core-1.0-1.jar httpc
+ lient-4.1.1.jar httpclient-cache-4.1.1.jar httpcore-4.1.jar httpmime-
+ 4.1.1.jar jamm-0.2.2.jar je-4.1.10.jar jline-0.9.94.jar json-simple-1
+ .1.jar jul-to-slf4j-1.6.1.jar junit-4.9.jar log4j-1.2.16.jar mysql-co
+ nnector-java-5.1.16-bin.jar speed4j-0.9.jar uuid-3.2.0.jar ws-commons
+ -util-1.0.2.jar jetty-all-8.0.4.v20111024-javadoc.jar jetty-client-8.
+ 0.4.v20111024.jar jetty-plus-8.0.4.v20111024.jar jetty-server-8.0.4.v
+ 20111024.jar jetty-servlet-8.0.4.v20111024.jar jetty-webapp-8.0.4.v20
+ 111024.jar servlet-api-3.0.jar jetty-util-8.0.4.v20111024.jar jetty-a
+ jp-8.0.4.v20111024.jar jetty-annotations-8.0.4.v20111024.jar jetty-co
+ ntinuation-8.0.4.v20111024.jar jetty-deploy-8.0.4.v20111024.jar jetty
+ -http-8.0.4.v20111024.jar jetty-io-8.0.4.v20111024.jar jetty-jmx-8.0.
+ 4.v20111024.jar jetty-jndi-8.0.4.v20111024.jar jetty-overlay-deployer
+ -8.0.4.v20111024.jar jetty-policy-8.0.4.v20111024.jar jetty-rewrite-8
+ .0.4.v20111024.jar jetty-security-8.0.4.v20111024.jar jetty-servlets-
+ 8.0.4.v20111024.jar jetty-websocket-8.0.4.v20111024.jar jetty-xml-8.0
+ .4.v20111024.jar antlr-3.2.jar avro-1.4.0-fixes.jar avro-1.4.0-source
+ s-fixes.jar commons-cli-1.1.jar commons-codec-1.2.jar commons-lang-2.
+ 4.jar compress-lzf-0.8.4.jar concurrentlinkedhashmap-lru-1.2.jar guav
+ a-r08.jar high-scale-lib-1.1.2.jar jackson-core-asl-1.4.0.jar jackson
+ -mapper-asl-1.4.0.jar jamm-0.2.5.jar jline-0.9.94.jar json-simple-1.1
+ .jar libthrift-0.6.jar slf4j-api-1.6.1.jar slf4j-log4j12-1.6.1.jar sn
+ akeyaml-1.6.jar snappy-java-1.0.4.1.jar xmlrpc-client-3.1.3.jar xmlrp
+ c-common-3.1.3.jar xmlrpc-server-3.1.3.jar apache-cassandra-clientuti
+ l-1.0.7.jar apache-cassandra-thrift-1.0.7.jar apache-cassandra-1.0.7.
+ jar jna.jar platform.jar
+Class-Path: .
+
