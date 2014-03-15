@@ -7,5 +7,6 @@
 
 # User Files #
 /hyla-db
+/Lucene-4.7.0
 out
 logger

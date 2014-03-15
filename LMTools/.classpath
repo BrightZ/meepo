@@ -109,5 +109,6 @@
 	<classpathentry kind="lib" path="lib/quartz/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="lib/commons-io-2.4.jar"/>
 	<classpathentry kind="lib" path="lib/bcprov-jdk15on-147.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Lucene"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
